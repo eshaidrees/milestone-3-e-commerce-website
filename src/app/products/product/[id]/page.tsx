@@ -1,5 +1,5 @@
 "use client";
-
+import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import { FaFacebookF , FaTwitter , FaLinkedinIn , FaHeart } from "react-icons/fa";
 import { products } from "../../data"
@@ -16,13 +16,15 @@ const ProductDetail = () => {
   }
 
   return (
-      <section className="text-gray-600 body-font overflow-hidden">
+      <div className="text-gray-600 body-font overflow-hidden">
        <div className="container px-5 py-24 mx-auto">
         <div className="lg:w-4/5 mx-auto flex flex-wrap">
-           <img
+           <Image
             alt="ecommerce"
             className="bg-slate-200 p-10 lg:w-1/2 w-full lg:h-[500px] h-64 rounded"
             src={product.image}
+            width={100}
+            height={100}
             
             />
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
@@ -159,7 +161,7 @@ const ProductDetail = () => {
            </div>
          </div>
        </div>
-     </section>
+     </div>
 
   
     );

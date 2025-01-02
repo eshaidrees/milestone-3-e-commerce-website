@@ -13,13 +13,13 @@ export default function Homepage() {
   <div className="flex flex-col lg:flex-row">
   <div className="w-52 h-auto m-4 lg:m-8">
       <ul className="text-base flex flex-col gap-3 m-2 border-2 rounded-sm p-2">
-        <li>Woman's Fashion</li>
-        <li>Men's Fashion</li>
+        <li>Woman s Fashion</li>
+        <li>Men s Fashion</li>
         <li>Electronics</li>
         <li>Home & Lifestyle</li>
         <li>Medicine</li>
         <li>Sports & Outdoor</li>
-        <li>Baby's & Toys</li>
+        <li>Baby s & Toys</li>
         <li>Groceries & Pets</li>
         <li>Health & Beauty</li>
       </ul>

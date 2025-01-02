@@ -1,7 +1,6 @@
 import React from 'react'
 import { IoIosArrowDown } from "react-icons/io";
 
-
 export default function () {
   return (
     <div className='flex justify-center w-full max-w-[1440px] h-full bg-black'>
