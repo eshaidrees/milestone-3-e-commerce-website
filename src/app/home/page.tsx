@@ -48,7 +48,7 @@ export default function Homepage() {
   {/* Top Section */}
   <div className="w-full h-auto mb-10 border-2 rounded-lg p-4">
     <h1 className="border-l-4 border-red-700 text-sm lg:text-base text-red-700 pl-2 mb-2">
-      Today's
+      Today s
     </h1>
     <div className="flex flex-col lg:flex-row items-center gap-6">
       {/* Title */}
