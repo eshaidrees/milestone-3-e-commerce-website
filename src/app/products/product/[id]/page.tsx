@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import { useCart } from "@/context/CartContext";
-import { useState , useEffect } from 'react';
+import { useState } from 'react';
 import { FaFacebookF , FaTwitter , FaLinkedinIn , FaHeart } from "react-icons/fa";
 import { products } from "../../data"
 const ProductDetail = () => {
@@ -18,7 +18,7 @@ const ProductDetail = () => {
 
   // Add to cart handle
   const { addToCart } = useCart();
-  let [count , setCount] = useState(1);
+  const [count , setCount] = useState(1);
 
   const handleAddToCart = () => {
     addToCart({

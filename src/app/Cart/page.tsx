@@ -2,6 +2,7 @@
 
 import { useCart } from "@/context/CartContext";
 import { ImBin } from "react-icons/im";
+import Image from "next/image";
 
 const CartPage = () => {
   const { cart, removeFromCart } = useCart();
@@ -28,9 +29,11 @@ const CartPage = () => {
           {cart.map((item) => (
             <li key={item.id} className="flex justify-between w-full items-center mb-4">
               <div className="flex items-center gap-4">
-                <img
+                <Image
                   src={item.image}
                   alt={item.name}
+                  width={100}
+                  height={100}
                   className="w-20 h-20 object-cover"
                 />
                 <div>
