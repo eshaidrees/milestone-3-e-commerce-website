@@ -12,15 +12,12 @@ const ProductDetail = () => {
   const { id } = params;
   const product = products.find((item) => item.id === id);
 
-  if (!product) {
-    return <div className="text-center text-red-500">Product not found!</div>;
-  }
-
   // Add to cart handle
   const { addToCart } = useCart();
   const [count , setCount] = useState(1);
 
   const handleAddToCart = () => {
+    if (product) {
     addToCart({
       id: product.id,
       name: product.name,
@@ -29,8 +26,11 @@ const ProductDetail = () => {
       image: product.image,
     });
     alert("Product added to cart!");
+  }
   };
-
+  if (!product) {
+    return <div className="text-center text-red-500">Product not found!</div>;
+  }
 
   return (
       <div className="text-gray-600 body-font overflow-hidden">
