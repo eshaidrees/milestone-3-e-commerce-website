@@ -1,19 +1,36 @@
 "use client";
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
+import { useCart } from "@/context/CartContext";
+import { useState , useEffect } from 'react';
 import { FaFacebookF , FaTwitter , FaLinkedinIn , FaHeart } from "react-icons/fa";
 import { products } from "../../data"
-
 const ProductDetail = () => {
-  const params = useParams(); // Use `useParams` to get the dynamic route parameter
-  const { id } = params;
 
-  // Find the specific product by ID
+  // useParam to get Dynamic id
+  const params = useParams();
+  const { id } = params;
   const product = products.find((item) => item.id === id);
 
   if (!product) {
     return <div className="text-center text-red-500">Product not found!</div>;
   }
+
+  // Add to cart handle
+  const { addToCart } = useCart();
+  let [count , setCount] = useState(1);
+
+  const handleAddToCart = () => {
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      quantity: count ,
+      image: product.image,
+    });
+    alert("Product added to cart!");
+  };
+
 
   return (
       <div className="text-gray-600 body-font overflow-hidden">
@@ -118,7 +135,7 @@ const ProductDetail = () => {
                     <option>SM</option>
                     <option>M</option>
                     <option>L</option>
-                    <option>XL</option>
+                    <option>XL</option> 
                   </select>
                   <span className="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
                     <svg
@@ -137,11 +154,15 @@ const ProductDetail = () => {
               </div>
             </div>
             <div className="flex  pb-10 border-b-2 border-gray-100 mb-5">
-                <span className="flex text-black bg-white border-2 border-gray-300 py-2 px-6 focus:outline-none hover:bg-slate-200 rounded-lg">
-                  - 1 +
-                </span>
-                <button className="flex ml-auto text-black bg-white border-2 border-gray-500 py-2 px-6 focus:outline-none hover:bg-slate-200 rounded-lg">
-                  Add To Cart
+                <div className="flex gap-4 text-black bg-white border-2 border-gray-300 py-2 px-6 focus:outline-none hover:bg-slate-200 rounded-lg">
+                <button onClick={() => setCount(count > 1 ? count - 1 : 1)}>-</button>
+                  {count}
+                  <button onClick={() => setCount(count + 1)}>+</button>
+                </div> 
+                
+                <button  onClick={handleAddToCart}
+                className="bg-indigo-500 hover:bg-indigo-600 text-white mx-4 px-6 py-2 rounded">  
+                Add To Cart 
                 </button>
                 <button className="rounded-full w-10 h-10 bg-red-100 p-0 border-0 hover:text-red-500 inline-flex items-center justify-center text-red-400 ml-4">
                 <FaHeart className='size-5'/>
@@ -167,6 +188,7 @@ const ProductDetail = () => {
     );
   
 }
+
 export default ProductDetail;
 
 

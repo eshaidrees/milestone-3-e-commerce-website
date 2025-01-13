@@ -36,7 +36,7 @@ export default function Navbar() {
                 <div className="flex">
                 <IoSearchOutline  className='m-2 w-6 h-6'/>
                 <FaRegHeart className='m-2 w-6 h-5' />
-                <Link href="/shopCart">
+                <Link href="/Cart">
                 <RiShoppingCart2Line className='m-2 w-6 h-5'/>
                 </Link>
                 </div>
